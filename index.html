@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/NP_Logo2.png">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -455,7 +456,9 @@
         </header>
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <form id="contact-form" method="post" action="PHP/form-to-email.php">
+            <!-- <form id="contact-form" method="post"> -->
+            <form id="contact-form" class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
+            action="https://script.google.com/macros/s/AKfycbyHiPq2VZ__gMIG833-wl65ButxC5CGNavCWaHKqA/exec">
               <div class="messages"></div>
               <div class="controls">
                 <div class="row">
@@ -474,10 +477,17 @@
                   <div class="col-md-12">
                     <textarea name="message" placeholder="Message for me *" rows="4" required="required" class="form-control"></textarea>
                   </div>
+                  <div class="pure-group honeypot-field">
+                    <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
+                    <input id="honeypot" type="text" name="honeypot" value="" />
+                  </div>
                   <div class="col-md-12 text-center">
                     <button type="submit" class="btn btn-outline-primary">Send message</button>
                   </div>
                 </div>
+              </div>
+              <div class="thankyou_message" style="display:none;">
+                <h3><em>Thanks</em> for contacting! I will get back to you within 48 hours!</h3>
               </div>
             </form>
           </div>
@@ -489,11 +499,11 @@
     <footer class="main-footer">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 text-center text-lg-left">
+          <!-- <div class="col-md-6 text-center text-lg-left">
             <p class="social"><a href="#" class="external facebook wow fadeInUp"><i class="fa fa-facebook"></i></a><a href="#" data-wow-delay="0.2s" class="external instagram wow fadeInUp"><i class="fa fa-instagram"></i></a><a href="#" data-wow-delay="0.4s" class="external gplus wow fadeInUp"><i class="fa fa-google-plus"></i></a><a href="#" data-wow-delay="0.6s" class="email wow fadeInUp"><i class="fa fa-envelope"></i></a></p>
-          </div>
+          </div> -->
           <!-- /.6-->
-          <div class="col-md-6 text-center text-lg-right mt-4 mt-lg-0">
+          <div class="col-md-6 text-left text-lg-left mt-4 mt-lg-0">
             <p>© 2020 Nirmit Patel. All rights reserved.</p>
           </div>
           <div class="col-12 mt-4">
@@ -512,5 +522,6 @@
     <script src="vendor/jquery.counterup/jquery.counterup.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"> </script>
     <script src="js/front.js"></script>
+    <script data-cfasync="false" src="js/form-submission-handler.js"></script>
   </body>
 </html>

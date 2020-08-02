@@ -2350,3 +2350,7 @@ code {
     margin-left: 15px;
   }
 }
+
+.honeypot-field {
+  display: none;
+}
